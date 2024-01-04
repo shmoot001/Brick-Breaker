@@ -1,0 +1,248 @@
+private Ball ball;
+if(getX()  <= 12) {
+			ballX = -ballX;				
+		}
+		if(getX() >= 770) {
+			ballX = -ballX;
+		}
+		if(getY() <= 12) {
+			ballY = -ballY;
+		}
+		new Color(69,170,242)
+		
+		
+		block_2.add(new Blocks(77*i+53,12,32,32,new Color(75,123,236)));
+			block_2.add(new Blocks(77*i+20,45,32,32,new Color(75,123,236)));
+			block_2.add(new Blocks(77*i+53,78,32,32,new Color(75,123,236)));
+			block_2.add(new Blocks(77*i+20,110,32,32,new Color(75,123,236)));
+			
+			block_1.add(new Blocks(77*i+53,12,32,32,new Color(69,170,242)));
+			block_1.add(new Blocks(77*i+20,45,32,32,new Color(69,170,242)));
+			block_1.add(new Blocks(77*i+53,78,32,32,new Color(69,170,242)));
+			block_1.add(new Blocks(77*i+20,110,32,32,new Color(69,170,242)));
+			
+			
+					/*
+			block_1[i] = new Blocks(77*i+20,12,32,32,new Color(69,170,242)); 
+			block_3[i] = new Blocks(77*i+53,12,32,32,new Color(56,103,214)); 
+			*/
+			/*
+			block_1.add(new Blocks(77*i+20,12,32,32,new Color(69,170,242)));
+			block_1.add(new Blocks(77*i+53,45,32,32,new Color(69,170,242)));
+			block_1.add(new Blocks(77*i+20,78,32,32,new Color(69,170,242)));
+			block_1.add(new Blocks(77*i+53,110,32,32,new Color(69,170,242)));
+		
+			block_3.add(new Blocks(77*i+53,12,32,32,new Color(56,103,214)));
+			block_3.add(new Blocks(77*i+20,45,32,32,new Color(56,103,214)));
+			block_3.add(new Blocks(77*i+53,78,32,32,new Color(56,103,214)));
+			block_3.add(new Blocks(77*i+20,110,32,32,new Color(56,103,214)));
+			*/
+			
+	}
+	/*
+		block_1 = new Blocks[total_block];
+		block_2 = new Blocks[total_block];
+		block_3 = new Blocks[total_block];
+		*/
+		/*
+		block_1 = new ArrayList<Blocks>();
+		block_2 = new ArrayList<Blocks>();
+		block_3 = new ArrayList<Blocks>();
+		*/
+		/*
+	private Blocks[] block_3;
+	private Blocks[] block_2;
+	private Blocks[] block_1;
+	*/
+	/*
+	private ArrayList<Blocks> block_3;
+	private ArrayList<Blocks> block_2;
+	private ArrayList<Blocks> block_1;
+	*/
+	/*
+		for(Blocks block : block_1) {	
+			if (ball.isColliding(block)) {
+				ball.changeMove();
+					}
+				}
+			*/
+			
+		
+		/*
+		for(int i = 0; i<total_block; i++) {
+		for(Blocks block : block_3) {	
+		if (ball.isColliding(block)) {
+			block_3[i].setHeight(block_3[i].getHeight()-32);
+			ball.changeMove();
+			
+				}
+			}
+		}
+		for(int i = 0; i<total_block; i++) {
+		for(Blocks block : block_1) {
+			if (ball.isColliding(block)) {
+				block_1[i].setHeight(block_1[i].getHeight()-32);
+				ball.changeMove();
+				score++;
+				}
+			}
+		}
+		*/
+		
+		
+		public void isColliding(Blocks_array blocks) {
+		for(int i = 0; i<blocks.getBlock_1().size(); i++) {
+		Rectangle ballRect = new Rectangle (getX(),getY(),getWidth(),getHeight());
+		Rectangle blocksRect = new Rectangle(blocks.getBlock_1().get(i).getX(),blocks.getBlock_1().get(i).getY(),blocks.getBlock_1().get(i).getWidth(),blocks.getBlock_1().get(i).getHeight());
+		if (ballRect.intersects(blocksRect)) {
+				ballY = -ballY;
+				blocks.getBlock_1().remove(i);
+			}
+		}
+	}
+	public void isColliding1(Blocks_array blocks) {
+		for(int i = 0; i<blocks.getBlock_3().size(); i++) {
+		Rectangle ballRect = new Rectangle (getX(),getY(),getWidth(),getHeight());
+		Rectangle blocksRect = new Rectangle(blocks.getBlock_3().get(i).getX(),blocks.getBlock_3().get(i).getY(),blocks.getBlock_3().get(i).getWidth(),blocks.getBlock_3().get(i).getHeight());
+		if (ballRect.intersects(blocksRect)) {
+				ballY = -ballY;
+				hit[i] = hit[i]+1;
+				
+				if(hit[i] == 1) {
+					blocks.getBlock_3().add(new Blocks(35*i+40,45,32,32,Color.black));
+					}
+				if(hit[i] == 2) {
+					blocks.getBlock_3().remove(i);
+					}
+					
+					
+				/*	block_1.add(new Blocks(35*i+40,78,32,32,new Color(69,170,242)));
+				block_3[i] = new Blocks(77*i+53,12,32,32,new Color(56,103,214));
+				block_3[i] = new Blocks(77*i+20,45,32,32,new Color(56,103,214));
+				block_3[i] = new Blocks(77*i+53,78,32,32,new Color(56,103,214));
+				block_3[i] = new Blocks(77*i+20,110,32,32,new Color(56,103,214));
+				block_3[i] = new Blocks(75*i+40,45,50,12,new Color(56,103,214));
+				*/
+		
+		
+		for(int i = 0; i<antal_blockar; i++) {
+			
+			if (block_1[i].getHited().intersects(ball.getHited())) {
+				ball.changeMove();
+				block_1[i].setHeight(block_1[i].getHeight() - 32);
+				score++;
+			}
+			
+			if (block_2[i].getHited().intersects(ball.getHited())) {
+			ball.changeMove();
+			hit_2[i]++;
+			if(hit_2[i] == 1) {
+				block_2[i] = new Blocks(75*i+40,78,50,12,Color.cyan);
+				score += 3;
+				}
+			if(hit_2[i] == 2) {
+				block_2[i].setHeight(block_2[i].getHeight() - 32);
+				score += 1;
+				}
+		
+			} 
+			
+			else if (block_3[i].getHited().intersects(ball.getHited())) {
+			ball.changeMove();
+			hit_3[i]++;
+			
+				if(hit_3[i] == 1) {
+					block_3[i] = new Blocks(75*i+40,45,50,12, new Color(69,170,242));
+					score += 5;
+					}
+
+				if(hit_3[i] == 2) {
+					block_3[i] = new Blocks(75*i+40,45,50,12, Color.cyan);
+					score += 3;
+					}
+				if(hit_3[i] == 3) {
+					block_3[i].setHeight(block_3[i].getHeight() - 32);
+					score += 1;
+						}
+					}
+				}
+				if(ball.getY() > 600) {
+					if(life > 0) {
+						ball = new Ball(300,400,18,18);
+						life--;
+						}
+					}else if (life == 0) {
+						ball.setHeight(ball.getHeight() - 18);
+						player.setHeight(player.getHeight() - 12);
+						
+						name = JOptionPane.showInputDialog("Entre Your Name");
+						if(name.length() > 3) {
+							name = name.substring(0,3);
+						}
+						HSB.addLS(score);
+						HSB.addHS(score,name);
+						
+					}
+				/*
+			if (blocks.getBlock_2()[i].getHited().intersects(ball.getHited())) {
+				ball.changeMove();
+				hit_2[i]++;
+				if(hit_2[i] == 1) {
+					blocks.getBlock_2()[i] = new Blocks(75*i+40,78,50,12,Color.cyan);
+					score += 3;
+					}
+				if(hit_2[i] == 2) {
+					blocks.getBlock_2()[i].setHeight(blocks.getBlock_2()[i].getHeight() - 32);
+					score += 1;
+					}
+			
+				} 
+				
+				else if (blocks.getBlock_3()[i].getHited().intersects(ball.getHited())) {
+				ball.changeMove();
+				hit_3[i]++;
+				
+					if(hit_3[i] == 1) {
+						blocks.getBlock_3()[i] = new Blocks(75*i+40,45,50,12, new Color(69,170,242));
+						score += 5;
+						}
+
+					if(hit_3[i] == 2) {
+						blocks.getBlock_3()[i] = new Blocks(75*i+40,45,50,12, Color.cyan);
+						score += 3;
+						}
+					if(hit_3[i] == 3) {
+						blocks.getBlock_3()[i].setHeight(blocks.getBlock_3()[i].getHeight() - 32);
+						score += 1;
+							}
+						}
+					}
+					
+					if(ball.getY() > 600) {
+						if(life > 0) {
+							ball = new Ball(300,400,18,18);
+							life--;
+							}
+						}else if (life == 0) {
+							ball.setHeight(ball.getHeight() - 18);
+							player.setHeight(player.getHeight() - 12);
+							
+							name = JOptionPane.showInputDialog("Entre Your Name");
+							if(name.length() > 3) {
+								name = name.substring(0,3);
+							}
+						}
+						*/
+						
+								ArrayList<String>  tmp = new ArrayList<>();
+
+		for (int i = 0; i < model.size(); i++) {	
+			tmp.add((String) model.get(i));
+		}
+		Collections.sort(tmp, Collections.reverseOrder());
+		model.removeAllElements();
+		for (String s : tmp) {
+			model.addElement(s);
+		}
+						
+		
